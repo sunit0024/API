@@ -28,7 +28,7 @@
                             <td>${todo.description}</td>
                             <td>${todo.targetDate}</td>
                             <td>${todo.work}</td>
-                            <td><a href = "delete-todo?id=${todo.id}" class = "btn btn-primary">DELETE ${todo.id}</a></td>
+                            <td><a href = "delete-todo?id=${todo.id}" class = "btn btn-primary">DELETE</a></td>
                         </tr>
                     </c:forEach>
                 </tbody>
