@@ -28,19 +28,19 @@ public class TodoConttroller {
     }
 
     @RequestMapping(value="/add-todo",method = RequestMethod.GET)
-    public String showNewTodo(){
-//  public String showNewTodo(ModelMap map){
-//        String username = (String) map.get("name");
-//        Todo todo = new Todo(0,username,"",LocalDate.now(),"Nah");
-//        map.put("todo",todo);
+//    public String showNewTodo(){
+  public String showNewTodo(ModelMap map){
+        String username = (String) map.get("name");
+        Todo todo = new Todo(0,username,"",LocalDate.now(),"Nah");
+        map.put("todo",todo);
         return "todo";
     }
 
     @RequestMapping(value="/add-todo",method = RequestMethod.POST)
-    public String AddTodo(@RequestParam String description,ModelMap map){
-//  public String AddTodo(ModelMap map,Todo todo){
-//        todoService.addTodo((String) map.get("name"),todo.getDescription(),LocalDate.now(),"Nah");
-        todoService.addTodo((String) map.get("name"),description,LocalDate.now(),"Nah");
+//    public String AddTodo(@RequestParam String description,ModelMap map){
+  public String AddTodo(ModelMap map,Todo todo){
+        todoService.addTodo((String) map.get("name"),todo.getDescription(),LocalDate.now(),"Nah");
+//        todoService.addTodo((String) map.get("name"),description,LocalDate.now(),"Nah");
         return "redirect:list-todos";
     }
 }
