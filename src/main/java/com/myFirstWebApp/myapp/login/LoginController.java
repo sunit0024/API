@@ -32,4 +32,9 @@ public class LoginController {
         }
     }
 
+    @RequestMapping(value="/welcome-page", method = RequestMethod.GET)
+    public String welcomeMethod(){
+        return "welcome";
+    }
+
 }

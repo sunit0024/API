@@ -47,7 +47,6 @@ public class TodoService {
     }
 
     public void updateTodo(long id,String username,String description,LocalDate localDate,String work){
-        Todo toBeUpdatedTodo = new Todo(0,"default","default", LocalDate.now(),"Nah");
         for(Todo todo : todos)
             if(todo.getId() == id){
                 todo.setDescription(description);
