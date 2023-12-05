@@ -28,4 +28,14 @@ public class TodoService {
         Todo newTodo = new Todo(id++,username,description,localDate,work);
         todos.add(newTodo);
     }
+
+    public void deleteTodo(long id){
+        for(Todo todo : todos){
+            if(todo.getId() == id){
+                todos.remove(todo);
+                break;
+            }
+        }
+    }
+
 }

@@ -30,8 +30,7 @@ public class TodoConttroller {
     }
 
     @RequestMapping(value="/add-todo",method = RequestMethod.GET)
-//    public String showNewTodo(){
-  public String showNewTodo(ModelMap map){
+    public String showNewTodo(ModelMap map){
         String username = (String) map.get("name");
         Todo todo = new Todo(0,username,"",LocalDate.now(),"Nah");
         map.put("todo",todo);
@@ -39,12 +38,16 @@ public class TodoConttroller {
     }
 
     @RequestMapping(value="/add-todo",method = RequestMethod.POST)
-//    public String AddTodo(@RequestParam String description,ModelMap map){
-  public String AddTodo(ModelMap map, @Valid Todo todo, BindingResult result){
+    public String AddTodo(ModelMap map, @Valid Todo todo, BindingResult result){
         if(result.hasErrors())
             return "todo";
         todoService.addTodo((String) map.get("name"),todo.getDescription(),LocalDate.now(),"Nah");
-//        todoService.addTodo((String) map.get("name"),description,LocalDate.now(),"Nah");
+        return "redirect:list-todos";
+    }
+
+    @RequestMapping(value="/delete-todo",method = RequestMethod.GET)
+    public String deleteTodo(@RequestParam long id){
+        todoService.deleteTodo(id);
         return "redirect:list-todos";
     }
 }
