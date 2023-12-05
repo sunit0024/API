@@ -1,8 +1,8 @@
 
-        <%@ include file = "common/header.jspf" %>
-        <title>Add Todo Page</title>
-    </head>
-    <body>
+    <%@ include file = "common/header.jspf" %>
+    <title>Add Todo Page</title>
+</head>
+<body>
 
         <%@ include file = "common/navigation.jspf" %>
 

@@ -24,14 +24,17 @@ public class TodoConttroller {
 
     @RequestMapping(value="/list-todos",method = RequestMethod.GET)
     public String listAllTodos(ModelMap map){
-        List<Todo> ret = todoService.findByUserName("gfg");
-        map.put("todos",ret);
+        String username = (String)map.get("name");
+        System.out.println("-------- : "+username);
+        List<Todo> ret = todoService.findByUserName(username);
+        map.addAttribute("todos",ret);
         return "zz";
     }
 
     @RequestMapping(value="/add-todo",method = RequestMethod.GET)
     public String showNewTodo(ModelMap map){
         String username = (String) map.get("name");
+        System.out.println("-------- : "+username);
         Todo todo = new Todo(0,username,"",LocalDate.now(),"");
         map.put("todo",todo);
         return "todo";
