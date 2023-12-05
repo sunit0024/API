@@ -12,11 +12,11 @@
             <h1>Enter todo details<h1>
             <form:form method = "post" modelAttribute = "todo">
                 <br>
-                Description : <input type = "text" name = "description" required = "required">
-                <input type = "hidden" path = "work">
-                <input type = "hidden" path = "id">
+                Description : <form:input type = "text" path = "description" required = "required"/>
+                <form:input type = "hidden" path = "work"/>
+                <form:input type = "hidden" path = "id"/>
                 <br>
-                <input type = "submit" class = "btn btn-success">
+                <input type = "submit" class = "btn btn-success"/>
             </form:form>
         </div>
         <script src = "webjars/bootstrap/5.2.3/js/bootstrap.min.js"></script>
