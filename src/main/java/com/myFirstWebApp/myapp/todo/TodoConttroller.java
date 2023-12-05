@@ -1,7 +1,9 @@
 package com.myFirstWebApp.myapp.todo;
 
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -38,7 +40,9 @@ public class TodoConttroller {
 
     @RequestMapping(value="/add-todo",method = RequestMethod.POST)
 //    public String AddTodo(@RequestParam String description,ModelMap map){
-  public String AddTodo(ModelMap map,Todo todo){
+  public String AddTodo(ModelMap map, @Valid Todo todo, BindingResult result){
+        if(result.hasErrors())
+            return "todo";
         todoService.addTodo((String) map.get("name"),todo.getDescription(),LocalDate.now(),"Nah");
 //        todoService.addTodo((String) map.get("name"),description,LocalDate.now(),"Nah");
         return "redirect:list-todos";

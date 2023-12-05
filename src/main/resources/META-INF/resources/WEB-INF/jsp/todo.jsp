@@ -13,6 +13,7 @@
             <form:form method = "post" modelAttribute = "todo">
                 <br>
                 Description : <form:input type = "text" path = "description" required = "required"/>
+                <form:errors  path = "description" cssClass = "text-warning"/>
                 <form:input type = "hidden" path = "work"/>
                 <form:input type = "hidden" path = "id"/>
                 <br>
