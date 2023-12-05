@@ -1,5 +1,6 @@
 package com.myFirstWebApp.myapp.todo;
 
+import org.springframework.cglib.core.Local;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -38,4 +39,20 @@ public class TodoService {
         }
     }
 
+    public Todo getById(long id){
+        for(Todo todo : todos)
+            if(todo.getId() == id)
+                return todo;
+        return new Todo(id++,"default","default", LocalDate.now(),"Nah");
+    }
+
+    public void updateTodo(long id,String username,String description,LocalDate localDate,String work){
+        Todo toBeUpdatedTodo = new Todo(0,"default","default", LocalDate.now(),"Nah");
+        for(Todo todo : todos)
+            if(todo.getId() == id){
+                todo.setDescription(description);
+                todo.setTargetDate(localDate);
+                todo.setWork(work);
+            }
+    }
 }
